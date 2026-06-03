@@ -37,7 +37,7 @@ margin-top:20px;
 <div style="text-align:center;">
   <img src="logo.jpg" alt="Logo" width="120">
 </div>
-<h2 align="center">Check Your Balance</h2>
+<h2 align="center">Check Your Balance Owed to Limes</h2>
 
 <div class="box">
 <input id="search" placeholder="Enter username" style="width: 93%;">
@@ -83,7 +83,7 @@ let name = document.getElementById("search").value.toLowerCase();
 let user = data.find(u => u.name.toLowerCase() === name);
 
 document.getElementById("result").innerHTML =
-user ? "Outstanding Amount: R" + user.amount : "Not found";
+user ? "Amount owned to the owner: R" + user.amount : "Not found";
 }
 
 function login() {
