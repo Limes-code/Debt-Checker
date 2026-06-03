@@ -84,19 +84,36 @@ document.getElementById("result").innerHTML =
 user ? "Outstanding Amount: R" + user.amount : "Not found";
 }
 
-function login(){
-let pass = document.getElementById("pass").value;
-
-if(pass === "VWisking@1012"){
-document.getElementById("adminPanel").style.display = "block";
-alert("Logged in");
-}else{
-alert("Wrong password");
+function login() {
+    let pass = document.getElementById("pass").value;
+    if (pass === "VWisking@1012") {
+        // Open Google Sheet in a new tab
+        window.open('https://docs.google.com/spreadsheets/d/17DZSObfIz64oeId5WdkTFqG6tHBytvs7kjwYfENzSus/edit?usp=sharing', '_blank');
+    } else {
+        alert("Wrong password");
+    }
 }
-}
 
-function updateUser(){
-alert("⚠️ To update balances, you must edit your Google Sheet directly.\n\nThis version is read-only for safety.");
+async function updateUser() {
+    let name = document.getElementById("name").value.trim();
+    let amount = document.getElementById("amount").value.trim();
+
+    if (!name || amount === "") {
+        alert("Please enter both name and amount.");
+        return;
+    }
+
+    let url = SCRIPT_URL + "?name=" + encodeURIComponent(name) + "&amount=" + encodeURIComponent(amount);
+
+    let response = await fetch(url);
+
+    if (response.ok) {
+        let result = await response.text();
+        alert(result);  // Should show "Saved"
+        loadData();  // Refresh customer data on the page
+    } else {
+        alert("Error saving data.");
+    }
 }
 
 </script>
