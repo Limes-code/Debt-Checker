@@ -7,15 +7,15 @@
 <style>
 body{
 font-family:Arial;
-max-width:418px;
+max-width:450px;
 margin:auto;
 padding:20px;
 text-align:center;
 }
 
 input,button{
-width:10%;
-padding:10px;
+width:100%;
+padding:12px;
 margin:8px 0;
 font-size:16px;
 }
@@ -38,8 +38,8 @@ margin-top:20px;
 <h2>Check Your Balance</h2>
 
 <div class="box">
-<input id="search" placeholder="Enter username" width="300px">
-<button onclick="searchUser()">Search</button>
+<input id="search" placeholder="Enter username" style="width: 93%;">
+<button onclick="searchUser()"  style="width: 100%;">Search</button>
 <div id="result"></div>
 </div>
 
@@ -48,8 +48,8 @@ margin-top:20px;
 <h3>Admin Login</h3>
 
 <div class="box">
-<input type="password" id="pass" placeholder="Admin password">
-<button onclick="login()">Login</button>
+<input type="password" id="pass" placeholder="Admin password" style="width: 93%;">
+<button onclick="login()" style="width: 100%;">Login</button>
 </div>
 
 <div id="adminPanel" class="box">
