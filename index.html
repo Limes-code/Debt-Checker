@@ -81,7 +81,7 @@ let name = document.getElementById("search").value.toLowerCase();
 let user = data.find(u => u.name.toLowerCase() === name);
 
 document.getElementById("result").innerHTML =
-user ? "Amount Due: R" + user.amount : "Not found";
+user ? "Outstanding Amount: R" + user.amount : "Not found";
 }
 
 function login(){
